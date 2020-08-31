@@ -1,0 +1,41 @@
+<% if @banners && @banners.banner_items.length.positive? %>	
+	<ul class="vegas-slides hidden" data-speed="10000">
+		<% @banners&.banner_items&.each do |banner|%>
+			<% if banner.is_photo? %>
+				<li><img data-fade='2000' src="<%= banner.image.url %>" alt="" /></li>
+			<% else %>
+				<li>
+					<video data-type="video" style="width: 100%; height: 100%; object-fit: cover;" muted loop autoplay>
+						<source src="<%= banner.image.mp4.url %>" type="video/mp4"/>
+					</video>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+
+	<section id="section_1" class="banner banner_slider hero_section overlay_left">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					<ul class="vegas-controls">
+						<% @banners&.banner_items&.each do |banner|%>
+							<li><a href="#"></a></li>
+						<% end %>
+					</ul>
+					<div class="hero_content banner-content animatedParent" data-sequence="800">
+						<h1 class="animated bounceInUp" data-id="1"><%= @banners&.banner_items&.first&.name %></h1>
+						<h2 class="animated bounceInUp" data-id="2"><%= @banners&.banner_items&.first&.title %></h2>
+						<h5 class="animated bounceInUp" data-id="3"><%= @banners&.banner_items&.first&.description %></h5>
+						<% if not @banners&.banner_items&.first&.button_name.blank? %>
+							<div class="caption-buttons animated bounceInUp" data-id="4">
+								<a href="#" class="btn btn-default"><%= t('site.buy_tickets') %></a>
+								<a href="<%= @banners.banner_items.first.url %>" class="btn btn-white" target="<%= @banners.banner_items.first.url_target %>"><%= @banners.banner_items.first.button_name %></a>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%= render partial: 'layouts/site/audio_player' %>
+    </section>
+<% end %>

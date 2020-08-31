@@ -1,0 +1,27 @@
+<section id="section_3" class="newsletter_section">
+    <div class="container">
+        <div class="row" style="display: unset!important">
+            <div class="col-xs-12">
+                <h3><%= I18n.t('site.subscribe_to_newsletter') %></h3><br />
+                <h5><%= I18n.t('site.to_receive_concert_news') %></h5>
+                <div class="team_prizes"> 
+                    <figure class="team_stand animatedParent" data-sequence="400">
+                        <img class="animated fadeInUp" data-id="1" src="" alt=""/>
+                        <img class="animated fadeInRight" data-id="2" src="" alt=""/>
+                        <img class="animated fadeInLeft" data-id="3" src="" alt=""/>
+                        <img class="animated fadeInRight" data-id="4" src="" alt=""/>
+                        <img class="animated fadeInLeft" data-id="5" src="" alt=""/>
+                    </figure>
+                    <div class="newsletter_form">
+                        <%= form_with(model: @subscriber, validate: true, html: { id: "subscriber_form", multipart: true, role: "form" }) do |form| %>
+                            <input type="text" placeholder="Imię" name="subscriber[name]" />
+                            <input type="email" placeholder="Email" name="subscriber[email]" />
+                            <button type="submit" form="subscriber_form"><%= I18n.t('site.send') %></button>
+                            <div class="clearfix"></div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

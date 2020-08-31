@@ -1,0 +1,19 @@
+<% menu.children.each do |o| %>
+	<% if o.children.length > 0 %>
+		<li class="dropdown">
+			<a href="<%= get_menu_item_type o %>" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+				<i class="<%= "fa fa-#{menu.fa_icon_name}" %>"></i>
+				<%= o.name.upcase %>
+			</a>
+			<i class="ddl-switch fa fa-angle-down"></i>
+			<ul class="dropdown-menu">
+				<%= render 'layouts/site/menu_children', menu: o %>
+			</ul>
+		</li>
+	<% else %>
+		<li><a href="<%= get_menu_item_type o %>">
+			<i class="<%= "fa fa-#{menu.fa_icon_name}" %>"></i>
+			<%= o.name.upcase %>
+		</a></li>
+	<% end %>
+<% end %>

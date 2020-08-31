@@ -1,0 +1,40 @@
+<section id="section_7" class="media_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="section_head_widget animatedParent">
+                <h2 class="animated fadeInLeft">Galeria</h2>
+                <h5 class="animated bounceInUp">zdjęcia &amp; wideo</h5>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 text-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    2020 <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">2013</a></li>
+                    <li><a href="#">2012</a></li>
+                    <li><a href="#">2011</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row media_widget">
+            <% Gallery.all.each do |gallery| %>
+                <div class="col-xs-12 col-sm-4 col-md-3 animatedParent">
+                    <figure class="animated fadeInUp"> 
+                    <a href="#" data-toggle="modal" data-target="#gal_pop<%= gallery.id %>">
+                        <img src="<%= gallery.media_files.first.file.url %>" alt="" />
+                    </a>
+                    <figcaption>
+                        <h6><%= gallery.description %></h6>
+                        <%= gallery.media_files.count %> <%= t('site.items') %> </figcaption>
+                    </figure>
+                    <%= render :partial => "layouts/site/gallery", :locals => { :gallery => gallery } %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>

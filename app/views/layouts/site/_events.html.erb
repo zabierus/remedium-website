@@ -1,0 +1,40 @@
+<% unless Event.all.length == 0 %>
+    <section id="section_9" class="tours_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="section_head_widget">
+                    <h2>Nadchodzące koncerty</h2>
+                    <h5>aktualny rozkład jazdy</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tours_widget">
+                <div class="tour_row_header">
+                    <div class="column_one"> Data </div>
+                    <div class="column_two"> &nbsp;
+                    </div>
+                    <div class="column_three"> Miejsce </div>
+                    <div class="column_four"> Miasto </div>
+                    <div class="column_five"> Szczegóły </div>
+                    <div class="column_six"> Bilety </div>
+                </div>
+                <% Event.all.each do |event|%>
+                    <div class="tour_row animatedParent  ">
+                        <div class="tour_row_child animated fadeInDownShort">
+                        <div class="column_one">
+                            <span><%= event.start_at.strftime("%d/%m/%Y") %></span>
+                        </div>
+                        <div class="column_two"> </div>
+                        <div class="column_three"><%= event.venue %></div>
+                        <div class="column_four"><%= event.location %></div>
+                        <div class="column_five"><%= raw event.desc %></div>
+                        <div class="column_six"> <a class="btn btn_buy_ticket" href="<%= event.link %>" _target="blank">Kup bilety</a> </div>
+                        </div>
+                    </div>  
+                <% end %>
+            </div>
+        </div>
+    </section>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="container"> 
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="entry-title"><%= t('admin.privacy_policy') %></h3>
+            <% if @policy %>
+                <ul class="pull-right" type="none" style="padding: 0px!important">
+                    <li>
+                        <a href="<%= download_policy_path %>" title="<%= t('admin.download') %>" id="policy">
+                            <i class="fa fa-download"></i>
+                        </a>
+                    </li>
+                </ul>
+            <% end %>
+        </div>
+    </div>
+    <br />
+    <div class="entry-content">
+        <% if @policy %>
+            <%= raw @policy.replaced_keywords %>
+        <% else %>
+            <%= t('admin.undefined_or_not_visible') %>
+        <% end %>
+    </div>
+</div>

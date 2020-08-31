@@ -1,0 +1,27 @@
+<% unless @band.nil? || @band.size == 0 %>
+    <section id="section_11" class="team_section">
+        <div class="container overlayNews">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="section_head_widget">
+                    <h2>Członkowie zespołu</h2>
+                    <!--<h5></h5>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container team_widget">
+            <div class="container controls_wrapper animatedParent ">
+                <div class="carousel_controls"> <span id="member-prev" class="fa fa-angle-left animated fadeInLeft"></span> <span id="member-next" class="fa fa-angle-right animated bounceInRight"></span> </div>
+            </div>
+            
+            <div class="members_carousel animatedParent" data-sequence="400">
+                <% @band.each do |article| %>
+                    <figure class="animated fadeInLeft" data-id="1"> <img src="<%= article.image.url %>" alt=""/>
+                        <figcaption><a href="<%= article_url(article) %>"><%= article.name %></a></figcaption>
+                    </figure>
+                <% end %>
+            </div>
+        </div>
+    </section>
+<% end %>

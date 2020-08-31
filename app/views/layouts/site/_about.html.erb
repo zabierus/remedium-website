@@ -1,0 +1,23 @@
+<% unless Article.find_by(code: "about_us").nil? %>
+<% article = Article.find_by(code: "about_us") %>
+    <section id="section_12" class="about_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="section_head_widget animatedParent ">
+                    <h1 class="animated fadeInDown"><%= article.name %></h1>
+                    <h4><%= article.meta_description %></h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="text_widget">
+                        <%= raw article.body %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<% end %>

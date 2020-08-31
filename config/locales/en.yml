@@ -1,0 +1,11 @@
+en:
+  admin:
+    errors:
+      visible_to_lower_than_visible_from: "Visible to has to be greater or equal to Visible from"
+  site:
+    news: "News"
+    latest_posts: "Latest posts"
+    read_more: "Read more"
+    send: "Send"
+    subscribe_to_newsletter: "Subscribe to the newsletter"
+    to_receive_concert_news: "to receive information from us about concerts and more!"

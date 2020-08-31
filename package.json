@@ -1,0 +1,35 @@
+{
+  "name": "santana_cms",
+  "private": true,
+  "dependencies": {
+    "@fullcalendar/core": "^5.3.0",
+    "@fullcalendar/daygrid": "^5.3.0",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "5.1.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "imagesloaded": "^4.1.4",
+    "imports-loader": "^1.1.0",
+    "jplayer": "^2.9.2",
+    "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
+    "jquery.stellar": "^0.6.2",
+    "json-loader": "^0.5.7",
+    "mini-css-extract-plugin": "^0.11.0",
+    "modernizr": "^3.11.3",
+    "modernizr-loader": "^1.0.1",
+    "modernizr-webpack-plugin": "^1.0.7",
+    "rails-erb-loader": "^5.5.2",
+    "turbolinks": "^5.2.0",
+    "url-loader": "^4.1.0",
+    "webpack-modernizr-loader": "^5.0.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "jquery-migrate": "^3.3.1",
+    "video.js": "^7.8.4",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

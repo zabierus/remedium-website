@@ -1,0 +1,30 @@
+<!-- YouTube Section -->
+<div class="chooseus-section container-fluid no-padding">
+    <div class="section-padding"></div>
+    <!-- Container -->
+    <div class="d-flex justify-content-center">
+        <div id="my-video-display"></div>
+    </div><!-- Container -->
+    <div class="section-padding"></div>
+</div><!-- YouTube Section -->
+<script>
+    $('#my-video-display').prettyEmbed({
+        videoID: '<%= @domain.youtube_main_video_id if @domain and @domain.youtube_main_video_id %>',
+        previewSize: 'hd',
+
+        showInfo: false,
+        showControls: true,
+        loop: false,
+
+        colorScheme: 'dark',
+        showRelated: false,
+    });
+</script>
+<style>
+@media (max-width: 991px) {
+    #my-video-display {
+        max-width: 100%; 
+        max-height: 100%;
+    }
+}
+</style>

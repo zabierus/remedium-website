@@ -1,0 +1,45 @@
+<section id="section_2" class="news_section section_first">
+    <div class="container animatedParent ">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section_head_widget">
+                <h2 class="animated fadeInDown"><%= I18n.t('site.news') %></h2>
+                <h5 class="animated fadeInLeft"><%= I18n.t('site.latest_posts') %></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="news_widget container">
+        <div class="container controls_wrapper animatedParent ">
+            <div class="carousel_controls"> <span id="news-prev" class="fa fa-angle-left animated fadeInLeft"></span> <span id="news-next" class="fa fa-angle-right animated bounceInRight "></span> </div>
+        </div>
+        
+        <div class="news_carousel animatedParent ">
+            <% @news.each do |article| %>
+                <div class="news_box fadeInUp animated">
+                    
+                    <figure><img src="<%= article.image&.url || '/assets/remedium.png' %>" alt="" /></figure>
+                    
+                    <div class="news_info_wrapper">
+                        <div class="news_info">
+                            <h5><%= article.name %></h5>
+                            <ul class="news_meta">
+                                <li><%= article.author %></li>
+                                <li><%= article.creation_date %></li>
+                            </ul>
+                            <!--<h6>3 comments</h6>-->
+                        </div>
+                    </div>
+                    <div class="hover">
+                        <%= link_to I18n.t('site.read_more'), article_path(article), class: "triggerNews", 'data-number': article.id %>
+                    </div>
+                </div> 
+            <% end %>
+        </div>
+    </div>
+</section>
+
+<section id="newsAjaxWrapper" class="container">
+    <a class="closeNewsAjax" href="#section_2"><i class="fa fa-times"></i></a>
+    <div id="newsAjax" class="content_expander"></div>
+</section>

@@ -1,0 +1,49 @@
+<section id="section_5" class="track_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="section_head_widget animatedParent ">
+                <h2 class="animated fadeInLeft"><%= t('site.our_music') %></h2>
+                <!--<h5 class="animated bounceInRight">Albumy</h5>-->
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 text-right">
+                <%= react_component('AlbumFilter', { dates: Album.all.select{ |a| a.release_date } }) %>
+            </div>
+        </div>
+        
+        <div class="row tracks_widget">
+            <% Album.all.each_with_index do |album, index| %>
+                <div class="col-sm-4 col-xs-12 animatedParent album-<%= album.release_date.strftime("%Y") %>">
+                    <div class="track_box animated fadeInUp">
+                        <figure><img src="<%= album.cover.url %>" alt="" /></figure>
+                        <div class="track_info_wrapper">
+                            <div class="track_info">
+                                <h4><%= album.title %></h4>
+                                <h6><%= "#{album.tracks.count} #{t('site.tracks_plural')}" %></h6>
+                            </div>
+                        </div>
+                        <div class="hover"> <a href="#player" data-number="<%= index %>%"> Posłuchaj </a> </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        
+    </div>
+    <div class="clearfix"></div>
+    <div class="trackLoading"><i class="fa fa-spin fa-refresh"></i></div>
+    <section id="tracksAjaxWrapper" class="container">
+        <a class="closeTrackAjax" href="#section_5"><i class="fa fa-times"></i></a>
+        <div id="tracksAjax" class="content_expander music_widget">
+        </div>
+    </section>
+            
+    <div class="container">
+        <ul class="channels_list row animatedParent ">
+        <li class="col-xs-12 col-sm-4 animated fadeInLeft"><a href="#"><i class="fa fa-circular fa-music"></i>itunes</a></li>
+        <li class="col-xs-12 col-sm-4 animated fadeInLeft"><a href="#"><i class="fa fa-soundcloud"></i>soundcloud</a></li>
+        <li class="col-xs-12 col-sm-4 animated fadeInLeft"><a href="#"><i class="fa fa-youtube"></i>youtube</a></li>
+        </ul>
+    </div>
+    
+</section> 

@@ -1,0 +1,91 @@
+AllCops:
+  TargetRubyVersion: "2.7"
+  Exclude:
+    - '**/*.erb'
+    - lib/tasks/**/*
+    - vendor/**/*
+    - test/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 500
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 25
+
+# Single quotes being faster is hardly measurable and only affects parse time.
+# Enforcing double quotes reduces the times where you need to change them
+# when introducing an interpolation. Use single quotes only if their semantics
+# are needed.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# prefer [:foo, :bar, :baz] instead of %i[foo bar baz]
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+# Mixing the styles looks just silly.
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/AsciiComments:
+  # AllowedChars: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+  # "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+  # "ą", "Ą", "ś", "Ś", "ż", "Ż", "ź", "Ź", "ć", "Ć", "ó", "Ó", "ł", "Ł", "ń", "Ń"]
+  AllowedChars: ["ą", "Ą", "ś", "Ś", "ż", "Ż", "ź", "Ź", "ć", "Ć", "ó", "Ó", "ł", "Ł", "ń", "Ń"]
+
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: false
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: false
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: false
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ExpandPathArguments:
+  Enabled: false
+
+

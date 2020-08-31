@@ -1,0 +1,34 @@
+<div class="modal fade" id="gal_pop<%= gallery.id %>" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close destroy_owl" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <div class="modal-body">
+      
+            <div class="gallery_popup container">
+              <ul class="gallayoutOption">
+                <li class="active"><a href="#" class="fa fa-th gridGallery"></a></li>
+                  <li><a href="#" class="fa fa-picture-o sliderGallery"></a></li>
+              </ul>
+            
+              <h2><%= gallery.description %></h2>
+              <h6><%= gallery.media_files.count %> <%= t('site.items') %></h6>
+              
+              <div class="galery_widget">
+                  <ul class="gal_list">
+                    <% gallery.media_files.each do |mf| %>
+                      <li class="trigger_slider"><a href="<%= mf.url %>" target="<%= mf.url_target %>"><img src="<%= mf.file.url %>" alt="" /></a></li>
+                    <% end %>
+                  </ul>
+                  
+                  <ul class="channels_list row">
+                    <li class="col-xs-12 col-sm-4"> <a href="#"><i class="fa fa-circular fa-music"></i>itunes</a></li>
+                    <li class="col-xs-12 col-sm-4"><a href="#"><i class="fa fa-soundcloud"></i>soundcloud</a></li>
+                    <li class="col-xs-12 col-sm-4"> <a href="#"><i class="fa fa-youtube"></i>youtube</a></li>
+                  </ul>
+                  
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div> 

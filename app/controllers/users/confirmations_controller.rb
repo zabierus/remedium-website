@@ -1,0 +1,36 @@
+# frozen_string_literal: true
+
+class Users::ConfirmationsController < Devise::ConfirmationsController
+    layout "site"
+
+  def after_confirmation_path_for(resource_name, resource)
+    toast :success, t("site.user_confirmed")
+    new_site_user_session_path
+  end
+  # GET /resource/confirmation/new
+  # def new
+  #   super
+  # end
+
+  # POST /resource/confirmation
+  # def create
+  #   super
+  # end
+
+  # GET /resource/confirmation?confirmation_token=abcdef
+  # def show
+  #   super
+  # end
+
+  # protected
+
+  # The path used after resending confirmation instructions.
+  # def after_resending_confirmation_instructions_path_for(resource_name)
+  #   super(resource_name)
+  # end
+
+  # The path used after confirmation.
+  # def after_confirmation_path_for(resource_name, resource)
+  #   super(resource_name, resource)
+  # end
+end

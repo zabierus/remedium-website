@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: sant@n4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: remedium_d
+
+test:
+  <<: *default
+  database: remedium_t
+
+production:
+  <<: *default
+  database: santana_remedium_p
